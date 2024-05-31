@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 200px;
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .header-container {
@@ -27,4 +28,9 @@
   font-size: 16px;
   color: white;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.login-btn:hover {
+  background-color: var(--darkblue);
 }
