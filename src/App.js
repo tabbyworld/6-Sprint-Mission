@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
+import ItemPage from "./pages/Items";
+import MainPage from "./pages/Main";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Header />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/items" element={<ItemPage />} />
       </Routes>
     </Router>
   );
