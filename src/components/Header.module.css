@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 200px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+  gap: 23px;
+  font-weight: 700;
+  color: var(--gray600);
+}
+
+.login-btn {
+  padding: 12px 23px;
+  border-radius: 8px;
+  background-color: var(--blue);
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
