@@ -18,17 +18,19 @@
   list-style: none;
 }
 
-.navbar-list {
+a {
   font-weight: 700;
+  text-decoration: none;
   color: var(--gray600);
   cursor: pointer;
+  transition: all 0.5s;
 }
 
-a {
-  text-decoration: none;
+a:hover {
+  color: var(--blue);
 }
 
-.navbar-list:hover {
+.active {
   color: var(--blue);
 }
 
