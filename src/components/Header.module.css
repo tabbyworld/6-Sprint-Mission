@@ -14,10 +14,22 @@
 
 .navbar {
   display: flex;
-  list-style: none;
   gap: 23px;
+  list-style: none;
+}
+
+.navbar-list {
   font-weight: 700;
   color: var(--gray600);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar-list:hover {
+  color: var(--blue);
 }
 
 .login-btn {
