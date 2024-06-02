@@ -1,6 +1,7 @@
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "../assets/ic_logo.svg";
-import { Link, NavLink } from "react-router-dom";
+import Button from "./Button";
 
 function Header() {
   return (
@@ -28,7 +29,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      <button className={styles["login-btn"]}>로그인</button>
+      <Button text={"로그인"} />
     </header>
   );
 }

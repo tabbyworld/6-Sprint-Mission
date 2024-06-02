@@ -33,18 +33,3 @@ a:hover {
 .active {
   color: var(--blue);
 }
-
-.login-btn {
-  padding: 12px 23px;
-  border-radius: 8px;
-  background-color: var(--blue);
-  border: none;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.5s;
-}
-
-.login-btn:hover {
-  background-color: var(--darkblue);
-}
