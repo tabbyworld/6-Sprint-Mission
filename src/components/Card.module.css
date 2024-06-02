@@ -1,0 +1,38 @@
+.card {
+  margin: 0 24px;
+  margin-bottom: 40px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  width: 221px;
+}
+
+.image {
+  width: 221px;
+  height: 221px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+}
+
+.description {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+}
+
+.price {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray800);
+}
+
+.heart {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray600);
+}
