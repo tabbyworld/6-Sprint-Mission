@@ -5,10 +5,10 @@ import Search from "./Search";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 
-function CardContainer({ category, productList, type }) {
+function CardContainer({ category, productList, group, position }) {
   return (
     <div className={styles["card-container"]}>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${styles[position]}`}>
         <h1 className={styles.category}>{category}</h1>
         {category === "전체 상품" && (
           <div className={styles.left}>
@@ -20,7 +20,7 @@ function CardContainer({ category, productList, type }) {
           </div>
         )}
       </header>
-      <div className={`${styles.list} ${styles[type]}`}>
+      <div className={`${styles.list} ${styles[group]}`}>
         {productList.map((product) => (
           <Card key={product.id} product={product} />
         ))}

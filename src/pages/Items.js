@@ -36,12 +36,13 @@ export default function ItemPage() {
       <CardContainer
         category="베스트 상품"
         productList={favoriteProductList}
-        type="best"
+        group="best"
+        position="top"
       />
       <CardContainer
         category="전체 상품"
         productList={recentProductList}
-        type="all"
+        group="all"
       />
     </>
   );
