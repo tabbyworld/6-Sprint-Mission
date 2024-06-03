@@ -14,7 +14,9 @@ function Header() {
           <li>
             <NavLink
               to="/boards"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
             >
               자유게시판
             </NavLink>
@@ -22,7 +24,9 @@ function Header() {
           <li>
             <NavLink
               to="/items"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
             >
               중고마켓
             </NavLink>

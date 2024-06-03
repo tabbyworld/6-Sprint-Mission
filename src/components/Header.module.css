@@ -29,11 +29,10 @@ a {
   text-decoration: none;
   color: var(--gray600);
   cursor: pointer;
-  transition: all 0.5s;
 }
 
-a:hover {
-  color: var(--blue);
+.inactive:hover {
+  opacity: 0.7;
 }
 
 .active {
