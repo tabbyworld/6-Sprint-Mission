@@ -20,3 +20,17 @@
   display: flex;
   gap: 12px;
 }
+
+.list {
+  display: grid;
+  margin-bottom: 40px;
+  gap: 40px 24px;
+}
+
+.all {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.best {
+  grid-template-columns: repeat(4, 1fr);
+}

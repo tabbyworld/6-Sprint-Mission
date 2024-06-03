@@ -4,14 +4,18 @@ import heartIcon from "../assets/ic_heart.svg";
 export default function Card({ product }) {
   const { images, description, price, favoriteCount } = product || {};
 
+  if (description === "string") {
+    return null;
+  }
+
   const cutDescription =
-    description && description.length > 10
-      ? `${description.slice(0, 10)}···`
+    description && description.length > 12
+      ? `${description.slice(0, 12)}···`
       : description;
 
   return (
     <div className={styles.card}>
-      <img src={images[0]} alt={description} className={styles.image} />
+      <img src={images} alt="상품 이미지" className={styles.image} />
       <p className={styles.description}>{cutDescription}</p>
       <span className={styles.price}>{price}원</span>
       <span className={styles.heart}>

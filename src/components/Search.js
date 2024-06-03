@@ -1,7 +1,7 @@
 import styles from "./Search.module.css";
 import searchIcon from "../assets/ic_search.svg";
 
-function Search({ text }) {
+function Search() {
   return (
     <div className={styles.search}>
       <img className={styles.icon} src={searchIcon} alt="검색 아이콘" />

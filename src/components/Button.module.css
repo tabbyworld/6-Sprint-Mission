@@ -1,5 +1,6 @@
 .button {
-  padding: 12px 23px;
+  padding: 0px 23px;
+  height: 42px;
   border-radius: 8px;
   background-color: var(--blue);
   border: none;

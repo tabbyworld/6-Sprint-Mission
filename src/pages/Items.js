@@ -1,35 +1,48 @@
 import { useEffect, useState } from "react";
 import { getProductList } from "../api/api";
 import Header from "../components/Header";
-import Card from "../components/Card";
 import CardContainer from "../components/CardContainer";
 
 export default function ItemPage() {
-  const [productList, setProductList] = useState([]);
+  const [recentProductList, setRecentProductList] = useState([]);
+  const [favoriteProductList, setFavoriteProductList] = useState([]);
 
-  async function fetchProductList() {
+  async function fetchRecentProductList() {
     try {
-      const data = await getProductList(1);
-      setProductList(data.list);
+      const data = await getProductList(1, 12, "recent");
+      setRecentProductList(data.list);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function fetchFavoriteProductList() {
+    try {
+      const data = await getProductList(1, 4, "favorite");
+      setFavoriteProductList(data.list);
     } catch (e) {
       console.error(e);
     }
   }
 
   useEffect(() => {
-    fetchProductList();
+    fetchRecentProductList();
+    fetchFavoriteProductList();
   }, []);
 
   return (
     <>
       <Header />
-      <CardContainer category="베스트 상품" />
-      <div className="product-list">
-        {productList.map((product) => (
-          <Card key={product.id} product={product} />
-        ))}
-      </div>
-      <CardContainer category="전체 상품" />
+      <CardContainer
+        category="베스트 상품"
+        productList={favoriteProductList}
+        type="best"
+      />
+      <CardContainer
+        category="전체 상품"
+        productList={recentProductList}
+        type="all"
+      />
     </>
   );
 }
