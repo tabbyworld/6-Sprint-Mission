@@ -4,10 +4,6 @@ import heartIcon from "../assets/ic_heart.svg";
 export default function Card({ product }) {
   const { images, description, price, favoriteCount } = product || {};
 
-  if (description === "string") {
-    return null;
-  }
-
   const cutDescription =
     description && description.length > 12
       ? `${description.slice(0, 12)}···`

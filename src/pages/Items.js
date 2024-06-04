@@ -2,19 +2,13 @@ import { useEffect, useState } from "react";
 import { getProductList } from "../api/api";
 import Header from "../components/Header";
 import CardContainer from "../components/CardContainer";
+import Pagination from "../components/Pagination";
 
 export default function ItemPage() {
-  const [recentProductList, setRecentProductList] = useState([]);
   const [favoriteProductList, setFavoriteProductList] = useState([]);
-
-  async function fetchRecentProductList() {
-    try {
-      const data = await getProductList(1, 12, "recent");
-      setRecentProductList(data.list);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  const [recentProductList, setRecentProductList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   async function fetchFavoriteProductList() {
     try {
@@ -25,10 +19,24 @@ export default function ItemPage() {
     }
   }
 
+  async function fetchRecentProductList(page) {
+    try {
+      const data = await getProductList(page, 10, "recent");
+      setRecentProductList(data.list);
+      setTotalPages(Math.ceil(data.totalCount / 10));
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   useEffect(() => {
-    fetchRecentProductList();
+    fetchRecentProductList(currentPage);
     fetchFavoriteProductList();
-  }, []);
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
@@ -43,6 +51,11 @@ export default function ItemPage() {
         category="전체 상품"
         productList={recentProductList}
         group="all"
+      />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
       />
     </>
   );

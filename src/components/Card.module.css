@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   border-radius: 16px;
-  cursor: pointer;
 }
 
 .image {
@@ -11,6 +10,7 @@
   aspect-ratio: 1 / 1;
   margin-bottom: 16px;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .description {
