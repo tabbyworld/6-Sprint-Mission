@@ -9,6 +9,7 @@ export default function ItemPage() {
   const [recentProductList, setRecentProductList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
 
   async function fetchFavoriteProductList() {
     try {
@@ -19,9 +20,9 @@ export default function ItemPage() {
     }
   }
 
-  async function fetchRecentProductList(page) {
+  async function fetchRecentProductList(page, query = "") {
     try {
-      const data = await getProductList(page, 10, "recent");
+      const data = await getProductList(page, 10, "recent", query);
       setRecentProductList(data.list);
       setTotalPages(Math.ceil(data.totalCount / 10));
     } catch (e) {
@@ -30,12 +31,20 @@ export default function ItemPage() {
   }
 
   useEffect(() => {
-    fetchRecentProductList(currentPage);
+    fetchRecentProductList(currentPage, searchQuery);
+  }, [currentPage, searchQuery]);
+
+  useEffect(() => {
     fetchFavoriteProductList();
-  }, [currentPage]);
+  }, []);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
   };
 
   return (
@@ -51,6 +60,9 @@ export default function ItemPage() {
         category="전체 상품"
         productList={recentProductList}
         group="all"
+        onSearch={handleSearch}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
       <Pagination
         currentPage={currentPage}
