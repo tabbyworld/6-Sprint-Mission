@@ -1,8 +1,8 @@
 import styles from "./Card.module.css";
 import heartIcon from "../assets/ic_heart.svg";
 
-export default function Card({ product }) {
-  const { images, name, price, favoriteCount } = product || {};
+export default function Card({ product = {} }) {
+  const { images = [], name = "미제", price = 0, favoriteCount = 0 } = product;
 
   return (
     <div className={styles.card}>

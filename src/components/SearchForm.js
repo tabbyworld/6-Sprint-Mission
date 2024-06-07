@@ -1,11 +1,11 @@
 import styles from "./SearchForm.module.css";
 import searchIcon from "../assets/ic_search.svg";
 
-function SearchForm({ onSearch, searchQuery, setSearchQuery }) {
+function SearchForm({ handleSearch, searchQuery, setSearchQuery }) {
   const handleInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    onSearch(query);
+    handleSearch(query);
   };
 
   return (

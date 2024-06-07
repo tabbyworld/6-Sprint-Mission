@@ -1,42 +1,18 @@
-import { useEffect, useState } from "react";
-import { getProductList } from "../api/api";
+import { useState } from "react";
+import { useFavoriteProductList } from "../hooks/useFavoriteProductList";
+import { useRecentProductList } from "../hooks/useRecentProductList";
 import Header from "../components/Header";
 import CardContainer from "../components/CardContainer";
 import Pagination from "../components/Pagination";
 
 export default function ItemPage() {
-  const [favoriteProductList, setFavoriteProductList] = useState([]);
-  const [recentProductList, setRecentProductList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-
-  async function fetchFavoriteProductList() {
-    try {
-      const data = await getProductList(1, 4, "favorite");
-      setFavoriteProductList(data.list);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  async function fetchRecentProductList(page, query = "") {
-    try {
-      const data = await getProductList(page, 10, "recent", query);
-      setRecentProductList(data.list);
-      setTotalPages(Math.ceil(data.totalCount / 10));
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  useEffect(() => {
-    fetchRecentProductList(currentPage, searchQuery);
-  }, [currentPage, searchQuery]);
-
-  useEffect(() => {
-    fetchFavoriteProductList();
-  }, []);
+  const favoriteProductList = useFavoriteProductList();
+  const { recentProductList, totalPages } = useRecentProductList(
+    currentPage,
+    searchQuery
+  );
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -60,7 +36,7 @@ export default function ItemPage() {
         category="전체 상품"
         productList={recentProductList}
         group="all"
-        onSearch={handleSearch}
+        handleSearch={handleSearch}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />

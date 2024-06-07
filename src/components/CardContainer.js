@@ -10,7 +10,7 @@ function CardContainer({
   productList,
   group,
   position,
-  onSearch,
+  handleSearch,
   searchQuery,
   setSearchQuery,
 }) {
@@ -21,7 +21,7 @@ function CardContainer({
         {category === "전체 상품" && (
           <div className={styles.left}>
             <SearchForm
-              onSearch={onSearch}
+              handleSearch={handleSearch}
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
             />
