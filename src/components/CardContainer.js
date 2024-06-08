@@ -13,6 +13,7 @@ function CardContainer({
   handleSearch,
   searchQuery,
   setSearchQuery,
+  handleSortChange,
 }) {
   return (
     <div className={styles["card-container"]}>
@@ -28,7 +29,7 @@ function CardContainer({
             <Link to="/addItem">
               <Button text="상품 등록하기" />
             </Link>
-            <Dropdown />
+            <Dropdown onChange={handleSortChange} />
           </div>
         )}
       </header>

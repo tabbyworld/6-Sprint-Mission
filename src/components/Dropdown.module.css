@@ -1,12 +1,45 @@
 .dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.header {
   display: flex;
   align-items: center;
   padding: 0 20px;
   height: 42px;
   gap: 24px;
-  border: 1px solid var(--gray200);
+  border: 1px solid #ccc;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 300;
+  color: var(--gray800);
   cursor: pointer;
+}
+
+.options {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--gray800);
+  background-color: white;
+}
+
+.option {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.top {
+  border-bottom: 1px solid #ccc;
+}
+
+.option:hover {
+  font-weight: 500;
+  color: var(--blue);
 }

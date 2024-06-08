@@ -8,10 +8,12 @@ import Pagination from "../components/Pagination";
 export default function ItemPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sort, setSort] = useState("recent");
   const favoriteProductList = useFavoriteProductList();
   const { recentProductList, totalPages } = useRecentProductList(
     currentPage,
-    searchQuery
+    searchQuery,
+    sort
   );
 
   const handlePageChange = (page) => {
@@ -21,6 +23,10 @@ export default function ItemPage() {
   const handleSearch = (query) => {
     setSearchQuery(query);
     setCurrentPage(1);
+  };
+
+  const handleSortChange = (selectedSort) => {
+    setSort(selectedSort);
   };
 
   return (
@@ -39,6 +45,7 @@ export default function ItemPage() {
         handleSearch={handleSearch}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        handleSortChange={handleSortChange}
       />
       <Pagination
         currentPage={currentPage}

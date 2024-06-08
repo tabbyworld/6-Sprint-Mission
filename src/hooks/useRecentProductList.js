@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProductList } from "../api/api";
 
-export function useRecentProductList(currentPage, searchQuery) {
+export function useRecentProductList(currentPage, searchQuery, sort) {
   const [recentProductList, setRecentProductList] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -11,7 +11,7 @@ export function useRecentProductList(currentPage, searchQuery) {
         const data = await getProductList({
           id: currentPage,
           count: 10,
-          sort: "recent",
+          sort: sort,
           query: searchQuery,
         });
         setRecentProductList(data.list);
@@ -22,7 +22,7 @@ export function useRecentProductList(currentPage, searchQuery) {
     }
 
     fetchRecentProductList();
-  }, [currentPage, searchQuery]);
+  }, [currentPage, searchQuery, sort]);
 
   return { recentProductList, totalPages };
 }
