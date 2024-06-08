@@ -5,12 +5,14 @@
 
 .header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  width: 130px;
   height: 42px;
   gap: 24px;
   border: 1px solid #ccc;
   border-radius: 12px;
+  background-color: white;
   font-size: 16px;
   font-weight: 300;
   color: var(--gray800);
@@ -24,7 +26,7 @@
 
 .options {
   position: absolute;
-  top: 110%;
+  top: 115%;
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 12px;
@@ -52,4 +54,16 @@
 .option:hover {
   font-weight: 400;
   color: var(--blue);
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .header {
+    width: 42px;
+  }
+
+  .options {
+    position: absolute;
+    right: 0;
+    width: 130px;
+  }
 }

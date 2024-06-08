@@ -38,3 +38,52 @@
 .best {
   grid-template-columns: repeat(4, 1fr);
 }
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-container {
+    margin: 24px 24px 0;
+  }
+
+  .best {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .best > *:nth-child(n + 3) {
+    display: none;
+  }
+
+  .all {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .card-container {
+    margin: 16px 16px 0;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .mobile {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+    gap: 8px;
+  }
+
+  .best {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .best > *:nth-child(n + 2) {
+    display: none;
+  }
+
+  .all {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

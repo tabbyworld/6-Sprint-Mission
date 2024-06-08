@@ -38,3 +38,34 @@ a {
 .active {
   color: var(--blue);
 }
+
+.logo-text {
+  display: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    padding: 0 34px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .header-container {
+    gap: 0;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo-text {
+    display: block;
+    margin-right: 16px;
+  }
+}
