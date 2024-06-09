@@ -17,6 +17,7 @@ function CardContainer({
   handleSortChange,
 }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("최신순");
 
   const handleResize = () => {
     setIsMobile(window.innerWidth >= 375 && window.innerWidth <= 767);
@@ -27,6 +28,11 @@ function CardContainer({
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleDropdownChange = (option) => {
+    setSelectedOption(option);
+    handleSortChange(option === "최신순" ? "recent" : "favorite");
+  };
 
   return (
     <div className={styles["card-container"]}>
@@ -44,7 +50,10 @@ function CardContainer({
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
                 />
-                <Dropdown onChange={handleSortChange} />
+                <Dropdown
+                  selectedOption={selectedOption}
+                  onChange={handleDropdownChange}
+                />
               </div>
             </>
           ) : (
@@ -57,7 +66,10 @@ function CardContainer({
               <Link to="/addItem">
                 <Button text="상품 등록하기" />
               </Link>
-              <Dropdown onChange={handleSortChange} />
+              <Dropdown
+                selectedOption={selectedOption}
+                onChange={handleDropdownChange}
+              />
             </div>
           ))}
       </header>
