@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useWindowResize } from "../hooks/useWindowResize";
 import styles from "./CardContainer.module.css";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
@@ -16,18 +17,8 @@ function CardContainer({
   setSearchQuery,
   handleSortChange,
 }) {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useWindowResize();
   const [selectedOption, setSelectedOption] = useState("최신순");
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth >= 375 && window.innerWidth <= 767);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleDropdownChange = (option) => {
     setSelectedOption(option);

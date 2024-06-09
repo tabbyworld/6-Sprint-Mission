@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from "react";
+import { useWindowResize } from "../hooks/useWindowResize";
 import styles from "./Dropdown.module.css";
 import dropdownIcon from "../assets/ic_arrow_down.svg";
 import dropdownIconMobile from "../assets/ic_sort.svg";
 
 function Dropdown({ selectedOption, onChange }) {
+  const isMobile = useWindowResize();
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -22,17 +23,8 @@ function Dropdown({ selectedOption, onChange }) {
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth >= 375 && window.innerWidth <= 767);
-    };
-
-    window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleDropdown);
-
-    handleResize();
-
     return () => {
-      window.removeEventListener("resize", handleResize);
       document.removeEventListener("mousedown", handleDropdown);
     };
   }, []);
@@ -40,7 +32,7 @@ function Dropdown({ selectedOption, onChange }) {
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <div className={styles.header} onClick={toggleDropdown}>
-        {isMobileView ? (
+        {isMobile ? (
           <img src={dropdownIconMobile} alt="드롭다운 모바일 아이콘" />
         ) : (
           <>
