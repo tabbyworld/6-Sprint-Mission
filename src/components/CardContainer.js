@@ -6,6 +6,7 @@ import Button from "./Button";
 import Dropdown from "./Dropdown";
 import SearchForm from "./SearchForm";
 import Card from "./Card";
+import Title from "./Title";
 
 function CardContainer({
   category,
@@ -28,7 +29,7 @@ function CardContainer({
   return (
     <div className={styles["card-container"]}>
       <header className={`${styles.header} ${styles[position]}`}>
-        <h1 className={styles.category}>{category}</h1>
+        <Title content={category} />
         {category === "전체 상품" &&
           (isMobile ? (
             <>
@@ -54,7 +55,7 @@ function CardContainer({
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
               />
-              <Link to="/addItem">
+              <Link to="/additem">
                 <Button text="상품 등록하기" />
               </Link>
               <Dropdown

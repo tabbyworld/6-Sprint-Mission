@@ -3,6 +3,7 @@ import "./App.css";
 import ItemPage from "./pages/Items";
 import MainPage from "./pages/Main";
 import BoardPage from "./pages/Boards";
+import AddItemPage from "./pages/AddItem";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/boards" element={<BoardPage />} />
         <Route path="/items" element={<ItemPage />} />
+        <Route path="/additem" element={<AddItemPage />} />
       </Routes>
     </Router>
   );

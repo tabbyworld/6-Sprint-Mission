@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+import GNB from "../components/GNB";
 
 export default function BoardPage() {
   return (
     <>
-      <Header />
+      <GNB />
     </>
   );
 }

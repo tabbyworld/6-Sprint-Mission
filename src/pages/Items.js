@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFavoriteProductList } from "../hooks/useFavoriteProductList";
 import { useRecentProductList } from "../hooks/useRecentProductList";
-import Header from "../components/Header";
+import GNB from "../components/GNB";
 import CardContainer from "../components/CardContainer";
 import Pagination from "../components/Pagination";
 
@@ -31,7 +31,7 @@ export default function ItemPage() {
 
   return (
     <>
-      <Header />
+      <GNB />
       <CardContainer
         category="베스트 상품"
         productList={favoriteProductList}

@@ -1,13 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "./GNB.module.css";
 import Button from "./Button";
 import logo from "../assets/ic_logo.svg";
 import logoText from "../assets/ic_logo_text.svg";
+import userIcon from "../assets/ic_user.svg";
 
-function Header() {
+function GNB({ showButton = true, showUser = false }) {
   return (
-    <header className={styles.header}>
-      <div className={styles["header-container"]}>
+    <header className={styles.gnb}>
+      <div className={styles["gnb-container"]}>
         <Link to="/">
           <img src={logo} alt="로고" className={styles.logo} />
         </Link>
@@ -37,9 +38,10 @@ function Header() {
           </li>
         </ul>
       </div>
-      <Button text={"로그인"} />
+      {showButton && <Button text={"로그인"} />}
+      {showUser && <img src={userIcon} alt="사용자 프로필 이미지" />}
     </header>
   );
 }
 
-export default Header;
+export default GNB;

@@ -1,4 +1,4 @@
-.header {
+.gnb {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@
   z-index: 1;
 }
 
-.header-container {
+.gnb-container {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -46,18 +46,18 @@ a {
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .header {
+  .gnb {
     padding: 0 34px;
   }
 }
 
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
-  .header {
+  .gnb {
     padding: 0 16px;
   }
 
-  .header-container {
+  .gnb-container {
     gap: 0;
   }
 
